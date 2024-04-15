@@ -1,4 +1,5 @@
 package Builder;
+
 import java.util.Objects;
 import java.util.OptionalInt;
 
@@ -7,23 +8,27 @@ public class Person {
     protected final String surname;
     int age;
     String address;
+
     public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
     }
+
     public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
     }
+
     public boolean hasAge() {
-        if(name != null){
+        if (name != null) {
             return true;
         }
         return false;
     }
+
     public boolean hasAddress() {
-        if(address != null){
+        if (address != null) {
             return true;
         }
         return false;
@@ -32,29 +37,35 @@ public class Person {
     public String getName() {
         return name;
     }
+
     public String getSurname() {
         return surname;
     }
+
     public OptionalInt getAge() {
         return OptionalInt.of(age);
     }
+
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
-        if(hasAddress()){
+        if (hasAddress()) {
             this.address = address;
         }
     }
+
     public void happyBirthday() {
-        if(hasAge()){
+        if (hasAge()) {
             age++;
         }
     }
+
     public PersonBuilder newChildBuilder() {
         return new PersonBuilder().setSurname(surname).setAddress(address);
     }
+
     @Override
     public String toString() {
         return "Person{" +

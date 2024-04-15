@@ -7,23 +7,26 @@ public class PersonBuilder {
     String address;
 
     public PersonBuilder setName(String name) {
-       if(name == null || name.isEmpty()){
-           throw new IllegalArgumentException("Не корректный ввод поля имя");
-       } this.name = name;
-       return this;
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Не корректный ввод поля имя");
+        }
+        this.name = name;
+        return this;
     }
 
     public PersonBuilder setSurname(String surname) {
-        if(surname == null || surname.isEmpty()){
+        if (surname == null || surname.isEmpty()) {
             throw new IllegalArgumentException("Не корректный ввод поля фамилия");
-        } this.surname = surname;
+        }
+        this.surname = surname;
         return this;
     }
 
     public PersonBuilder setAge(int age) {
-        if(age < 0 || age > 120){
+        if (age < 0 || age > 120) {
             throw new IllegalArgumentException("Не корректный ввод поля возраст");
-        } this.age = age;
+        }
+        this.age = age;
         return this;
     }
 
@@ -31,13 +34,16 @@ public class PersonBuilder {
         this.address = address;
         return this;
     }
+
     public Person build() throws IllegalStateException {
         Person person;
-        if (name == null || surname == null)
+        if (name == null || surname == null) {
             throw new IllegalStateException("Не корректный ввод полей имя и фамилия");
+        }
         if (age < 0) {
             person = new Person(name, surname);
-        } else person = new Person(name, surname, age);
+        }
+        person = new Person(name, surname, age);
         person.setAddress(address);
         return person;
     }
