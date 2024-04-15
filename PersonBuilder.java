@@ -42,9 +42,11 @@ public class PersonBuilder {
         }
         if (age < 0) {
             person = new Person(name, surname);
+            return person;
+        } else {
+            person = new Person(name, surname, age);
+            person.setAddress(address);
+            return person;
         }
-        person = new Person(name, surname, age);
-        person.setAddress(address);
-        return person;
     }
 }
