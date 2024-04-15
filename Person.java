@@ -66,7 +66,7 @@ public class Person {
         return new PersonBuilder().setSurname(surname).setAddress(address);
     }
 
-    @Override
+    @Overridegit
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
@@ -78,8 +78,12 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Person person = (Person) o;
         return age == person.age && name.equals(person.name) && surname.equals(person.surname) && Objects.equals(address, person.address);
     }
