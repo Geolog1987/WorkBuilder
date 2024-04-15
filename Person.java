@@ -66,7 +66,7 @@ public class Person {
         return new PersonBuilder().setSurname(surname).setAddress(address);
     }
 
-    @Overridegit
+    @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
